@@ -47,7 +47,7 @@ const DIARY_ENTRIES = [
     date: "2026-07-27",
     title: "Elogios da minha gatinha",
     content: [
-      "PHoje eu fiquei muito feliz com a reação do meu amor quando eu ajudei ela a conectar o mouse no tablet, o jeito de ela me elogiar me faz eu me sentir importante e incrível",
+      "Hoje eu fiquei muito feliz com a reação do meu amor quando eu ajudei ela a conectar o mouse no tablet, o jeito de ela me elogiar me faz eu me sentir importante e incrível",
       "terminar as anotações com mais tempo, olhar no pc as anotações que fiz na hora para não esquecer"
     ]
   },
