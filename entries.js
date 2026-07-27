@@ -17,7 +17,7 @@
 
 const DIARY_ENTRIES = [
   {
-    date: "2024-01-01", // <-- troque para a data real dessa carta
+    date: "2024-07-26", // <-- troque para a data real dessa carta
     title: "A carta que começou tudo",
     content: [
       "Meu denguinho, como eu começo? \nSão tantas coisas para falar... Os últimos dias têm sido os mais incríveis para mim, sua companhia fez o tempo passar de um jeito leve, descontraído mas com sentimento único. Dividir momentos bons é relativamente simples e fácil, afinal são só partes boas, mas com você dividi tudo: momentos de alegria, tristeza, momentos onde achei que daria tudo certo e deu tudo errado, apertos financeiros da minha parte, momentos em que achei que não teria apertos financeiros mais rsrs, enfim.",
