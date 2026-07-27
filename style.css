@@ -343,7 +343,7 @@ h1,h2,h3{ margin:0; }
 }
 
 .game{ max-height:0; overflow:hidden; opacity:0; transition:max-height .7s ease, opacity .6s ease; width:100%; }
-.game.open{ max-height:400px; opacity:1; margin-top:6px; }
+.game.open{ max-height:560px; opacity:1; margin-top:6px; }
 .game-caption{ font-style:italic; color:var(--ink-soft); margin-bottom:14px; font-size:0.95rem; }
 
 .lips-area{ position:relative; width:min(240px, 78%); margin:0 auto 6px; touch-action:none; user-select:none; -webkit-user-select:none; }
@@ -368,18 +368,45 @@ h1,h2,h3{ margin:0; }
 }
 .reveal-message.show{ opacity:1; transform: translateY(0) scale(1); }
 
+.answer-row{
+  position:relative;
+  width:100%;
+  height:130px;
+  margin-top:14px;
+}
+
 .yes-btn{
-  margin-top:14px; display:inline-block;
+  position:absolute;
+  left:50%;
+  top:6px;
+  transform: translate(-50%, 8px);
+  display:inline-block;
   font-family:'EB Garamond', serif; font-weight:600; font-size:0.95rem;
   color: var(--parchment);
   background: linear-gradient(180deg, #8a2e3a, var(--wax-dark));
   border:1px solid rgba(0,0,0,0.3);
   padding: 8px 22px; border-radius:30px; cursor:pointer;
-  opacity:0; transform: translateY(8px);
+  white-space:nowrap;
+  opacity:0;
   transition: opacity .6s ease .3s, transform .6s ease .3s, filter .2s ease;
 }
-.yes-btn.show{ opacity:1; transform:translateY(0); }
+.yes-btn.show{ opacity:1; transform:translate(-50%, 0); }
 .yes-btn:hover{ filter:brightness(1.12); }
+
+.no-btn{
+  position:absolute;
+  left:0; top:6px;
+  font-family:'EB Garamond', serif; font-weight:600; font-size:0.95rem;
+  color: var(--ink-soft);
+  background: linear-gradient(180deg, #d8c199, var(--parchment-dark));
+  border:1px solid rgba(0,0,0,0.22);
+  padding: 8px 22px; border-radius:30px; cursor:pointer;
+  white-space:nowrap;
+  opacity:0;
+  transition: opacity .6s ease .3s, left .22s ease, top .22s ease, transform .15s ease;
+}
+.no-btn.show{ opacity:1; }
+.no-btn:active{ transform: scale(0.94); }
 
 /* ---------- controls ---------- */
 .controls{

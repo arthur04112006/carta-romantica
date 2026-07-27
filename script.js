@@ -276,7 +276,10 @@
           </div>
         </div>
         <div class="reveal-message" id="revealMessage">quer namorar comigo?</div>
-        <button class="yes-btn" id="yesBtn" data-no-flip>sim, eu quero! 🤎</button>
+        <div class="answer-row" id="answerRow" data-no-flip>
+          <button class="yes-btn" id="yesBtn" data-no-flip>sim, eu quero! 🤎</button>
+          <button class="no-btn" id="noBtn" data-no-flip type="button">não</button>
+        </div>
       </div>
     `;
     setTimeout(() => wireEpilogue(inner), 0);
@@ -288,7 +291,11 @@
     const game = root.querySelector('#game');
     waxSeal.addEventListener('click', () => {
       waxSeal.classList.add('opened');
-      setTimeout(() => game.classList.add('open'), 200);
+      setTimeout(() => {
+        game.classList.add('open');
+        // depois da animação de abrir, tira o teto de altura pra nunca cortar nada
+        setTimeout(() => { game.style.maxHeight = 'none'; }, 750);
+      }, 200);
     });
 
     const lipsArea = root.querySelector('#lipsArea');
@@ -297,6 +304,8 @@
     const shineDot = root.querySelector('#shineDot');
     const revealMessage = root.querySelector('#revealMessage');
     const yesBtn = root.querySelector('#yesBtn');
+    const noBtn = root.querySelector('#noBtn');
+    const answerRow = root.querySelector('#answerRow');
 
     let dragging = false;
     let revealed = false;
@@ -316,6 +325,8 @@
         revealed = true;
         revealMessage.classList.add('show');
         yesBtn.classList.add('show');
+        noBtn.classList.add('show');
+        placeNoBtnInitial();
       }
     }
     function pointerX(e) {
@@ -341,6 +352,28 @@
       if (e.key === 'ArrowRight') { setProgress(currentLeft + step); e.preventDefault(); e.stopPropagation(); }
       if (e.key === 'ArrowLeft') { setProgress(currentLeft - step); e.preventDefault(); e.stopPropagation(); }
     });
+
+    // o botão "não" nunca deixa clicar nele — foge antes do toque terminar
+    function placeNoBtnInitial() {
+      const rowW = answerRow.getBoundingClientRect().width;
+      const btnW = noBtn.offsetWidth || 74;
+      const left = Math.min(rowW - btnW - 4, rowW / 2 + 46);
+      noBtn.style.left = Math.max(4, left) + 'px';
+      noBtn.style.top = '6px';
+    }
+    function dodgeNoBtn() {
+      const rowRect = answerRow.getBoundingClientRect();
+      const btnW = noBtn.offsetWidth;
+      const btnH = noBtn.offsetHeight;
+      const maxX = Math.max(0, rowRect.width - btnW);
+      const maxY = Math.max(0, rowRect.height - btnH);
+      noBtn.style.left = Math.random() * maxX + 'px';
+      noBtn.style.top = Math.random() * maxY + 'px';
+    }
+    noBtn.addEventListener('pointerenter', dodgeNoBtn);
+    noBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); e.stopPropagation(); dodgeNoBtn(); });
+    noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); dodgeNoBtn(); }, { passive: false });
+    noBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dodgeNoBtn(); });
 
     const heartsBox = document.getElementById('hearts');
     yesBtn.addEventListener('click', (e) => {
