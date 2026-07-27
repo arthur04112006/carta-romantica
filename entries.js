@@ -17,7 +17,7 @@
 
 const DIARY_ENTRIES = [
   {
-    date: "2024-07-26", // <-- troque para a data real dessa carta
+    date: "2026-07-26", // <-- troque para a data real dessa carta
     title: "A carta que começou tudo",
     content: [
       "Meu denguinho, como eu começo? \nSão tantas coisas para falar... Os últimos dias têm sido os mais incríveis para mim, sua companhia fez o tempo passar de um jeito leve, descontraído mas com sentimento único. Dividir momentos bons é relativamente simples e fácil, afinal são só partes boas, mas com você dividi tudo: momentos de alegria, tristeza, momentos onde achei que daria tudo certo e deu tudo errado, apertos financeiros da minha parte, momentos em que achei que não teria apertos financeiros mais rsrs, enfim.",
@@ -43,4 +43,12 @@ const DIARY_ENTRIES = [
   },
 
   --------------------------------------------------------------- */
+   {
+    date: "2026-07-27",
+    title: "Elogios da minha gatinha",
+    content: [
+      "PHoje eu fiquei muito feliz com a reação do meu amor quando eu ajudei ela a conectar o mouse no tablet, o jeito de ela me elogiar me faz eu me sentir importante e incrível",
+      "terminar as anotações com mais tempo, olhar no pc as anotações que fiz na hora para não esquecer"
+    ]
+  },
 ];
